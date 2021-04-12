@@ -55,14 +55,77 @@ from Ui_Booking import Ui_Booking
 ## ==> GLOBALS
 counter = 0
 
-# YOUR APPLICATION
-class Booking(QMainWindow):
+
+####################################################################
+#  SPLASH SCREEN
+####################################################################
+
+class screen(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
-        self.ui = Ui_Booking()
+        self.ui = Ui_screen()
         self.ui.setupUi(self)
 
-        # MAIN WINDOW LABEL
+        ## UI ==> INTERFACE CODES
+        ########################################################################
+
+        ## REMOVE TITLE BAR
+        self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
+        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+
+
+        ## DROP SHADOW EFFECT
+        self.shadow = QGraphicsDropShadowEffect(self)
+        self.shadow.setBlurRadius(20)
+        self.shadow.setXOffset(0)
+        self.shadow.setYOffset(0)
+        self.shadow.setColor(QColor(0, 0, 0, 60))
+        self.ui.dropframe.setGraphicsEffect(self.shadow)
+
+        ## QTIMER ==> START
+        self.timer = QtCore.QTimer()
+        self.timer.timeout.connect(self.progress)
+        # TIMER IN MILLISECONDS
+        self.timer.start(35)
+
+        # CHANGE DESCRIPTION
+
+        # Initial Text
+        self.ui.label_description.setText("<strong>WELCOME</strong> TO MY APPLICATION")
+
+        # Change Texts
+        QtCore.QTimer.singleShot(1500, lambda: self.ui.label_description.setText("<strong>LOADING</strong> DATABASE"))
+        QtCore.QTimer.singleShot(3000, lambda: self.ui.label_description.setText("<strong>LOADING</strong> USER INTERFACE"))
+
+
+        ## SHOW ==> MAIN WINDOW
+        ########################################################################
+        self.show()
+        ## ==> END ##
+
+    ## ==> APP FUNCTIONS
+    ########################################################################
+    def progress(self):
+
+        global counter
+
+        # SET VALUE TO PROGRESS BAR
+        self.ui.progressBar.setValue(counter)
+
+        # CLOSE SPLASH SCREE AND OPEN APP
+        if counter > 100:
+            # STOP TIMER
+            self.timer.stop()
+
+            # SHOW MAIN WINDOW
+            self.main = Login()
+            self.main.show()
+
+            # CLOSE SPLASH SCREEN
+            self.close()
+
+        # INCREASE COUNTER
+        counter += 1
 
 #================================================#
 #Login Screen
@@ -130,7 +193,9 @@ class Signup(QDialog):
                 self.ui.invalid.setVisible(True)
             
 
-
+#================================================#
+#Add details
+#================================================#
 
 class User_details(QDialog):
     def __init__(self):
@@ -151,7 +216,7 @@ class User_details(QDialog):
         v_data={'Vehicle Make': v_make,'Vehicle Model':v_model,'Vehicle Year': v_year}
 
         db.collection('User Side').document('User Info').collection(name).document('Persnol Info').set(user_data)
-        db.collection('User Side').document('User Info').collection(name).document('Vehicle Info').set(v_data)
+        db.collection('User Side').document('User Info').collection(name).document('Vehicle').collection('Vehicle Info').document(v_make).set(v_data)
         self.main=Booking()
         self.main.show()
         self.close()
@@ -159,6 +224,17 @@ class User_details(QDialog):
 
 
             
+        
+#================================================#
+#Booking
+#================================================#
+
+class Booking(QMainWindow):
+    def __init__(self):
+        QMainWindow.__init__(self)
+        self.ui = Ui_Booking()
+        self.ui.setupUi(self)
+
         
 
         
@@ -171,73 +247,7 @@ class User_details(QDialog):
 
                                                  
 
-# SPLASH SCREEN
-class screen(QMainWindow):
-    def __init__(self):
-        QMainWindow.__init__(self)
-        self.ui = Ui_screen()
-        self.ui.setupUi(self)
 
-        ## UI ==> INTERFACE CODES
-        ########################################################################
-
-        ## REMOVE TITLE BAR
-        self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
-        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
-
-
-        ## DROP SHADOW EFFECT
-        self.shadow = QGraphicsDropShadowEffect(self)
-        self.shadow.setBlurRadius(20)
-        self.shadow.setXOffset(0)
-        self.shadow.setYOffset(0)
-        self.shadow.setColor(QColor(0, 0, 0, 60))
-        self.ui.dropframe.setGraphicsEffect(self.shadow)
-
-        ## QTIMER ==> START
-        self.timer = QtCore.QTimer()
-        self.timer.timeout.connect(self.progress)
-        # TIMER IN MILLISECONDS
-        self.timer.start(35)
-
-        # CHANGE DESCRIPTION
-
-        # Initial Text
-        self.ui.label_description.setText("<strong>WELCOME</strong> TO MY APPLICATION")
-
-        # Change Texts
-        QtCore.QTimer.singleShot(1500, lambda: self.ui.label_description.setText("<strong>LOADING</strong> DATABASE"))
-        QtCore.QTimer.singleShot(3000, lambda: self.ui.label_description.setText("<strong>LOADING</strong> USER INTERFACE"))
-
-
-        ## SHOW ==> MAIN WINDOW
-        ########################################################################
-        self.show()
-        ## ==> END ##
-
-    ## ==> APP FUNCTIONS
-    ########################################################################
-    def progress(self):
-
-        global counter
-
-        # SET VALUE TO PROGRESS BAR
-        self.ui.progressBar.setValue(counter)
-
-        # CLOSE SPLASH SCREE AND OPEN APP
-        if counter > 100:
-            # STOP TIMER
-            self.timer.stop()
-
-            # SHOW MAIN WINDOW
-            self.main = Login()
-            self.main.show()
-
-            # CLOSE SPLASH SCREEN
-            self.close()
-
-        # INCREASE COUNTER
-        counter += 1
 
 
 
