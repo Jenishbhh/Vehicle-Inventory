@@ -212,11 +212,14 @@ class User_details(QDialog):
         v_make=self.ui.V_make.text()
         v_model=self.ui.V_model.text()
         v_year=self.ui.V_year.text()
-        user_data={'Name': name, 'Address': address, 'Phone': phone}
-        v_data={'Vehicle Make': v_make,'Vehicle Model':v_model,'Vehicle Year': v_year}
+        
 
+        user_data={'Name': name, 'Address': address, 'Phone': phone, 'ID': "ID"}
+        v_data={'Vehicle Make': v_make,'Vehicle Model':v_model,'Vehicle Year': v_year}
+        
         db.collection('User Side').document('User Info').collection(name).document('Persnol Info').set(user_data)
         db.collection('User Side').document('User Info').collection(name).document('Vehicle').collection('Vehicle Info').document(v_make).set(v_data)
+
         self.main=Booking()
         self.main.show()
         self.close()
