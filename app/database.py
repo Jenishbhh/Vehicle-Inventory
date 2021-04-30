@@ -10,5 +10,5 @@ db=firestore.client()
 
 f=('200,4,5')
 data={'name': f}
-userid=auth.getuserid()
+
 db.collection('User Info').document(f).collection(f).document(f).set(userid)

@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="Title">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -35,7 +35,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="Cust_num">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -53,7 +53,7 @@
      <string>Cust Num: </string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QLabel" name="Cust_name">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -172,7 +172,7 @@
      <string>...</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit">
+   <widget class="QTextEdit" name="problem">
     <property name="geometry">
      <rect>
       <x>330</x>
@@ -185,8 +185,11 @@
      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:18pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Please Enter the Problem that you faced...&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="placeholderText">
+     <string>Please Enter the Problem that you faced...</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_6">
@@ -207,7 +210,7 @@ p, li { white-space: pre-wrap; }
      <string>Problem:</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="submit">
     <property name="geometry">
      <rect>
       <x>330</x>
@@ -225,7 +228,7 @@ p, li { white-space: pre-wrap; }
      <string>Submit</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="reset">
     <property name="geometry">
      <rect>
       <x>330</x>
@@ -243,7 +246,7 @@ p, li { white-space: pre-wrap; }
      <string>Reset</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="back">
     <property name="geometry">
      <rect>
       <x>470</x>
@@ -261,7 +264,7 @@ p, li { white-space: pre-wrap; }
      <string>Back</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="exit">
     <property name="geometry">
      <rect>
       <x>470</x>
@@ -299,9 +302,9 @@ p, li { white-space: pre-wrap; }
     </property>
    </widget>
    <zorder>frame</zorder>
-   <zorder>label</zorder>
-   <zorder>label_3</zorder>
-   <zorder>label_4</zorder>
+   <zorder>Title</zorder>
+   <zorder>Cust_num</zorder>
+   <zorder>Cust_name</zorder>
    <zorder>label_2</zorder>
    <zorder>dateEdit</zorder>
    <zorder>timeEdit</zorder>
@@ -309,11 +312,11 @@ p, li { white-space: pre-wrap; }
    <zorder>toolButton</zorder>
    <zorder>toolButton_2</zorder>
    <zorder>label_6</zorder>
-   <zorder>pushButton</zorder>
-   <zorder>pushButton_2</zorder>
-   <zorder>pushButton_3</zorder>
-   <zorder>pushButton_4</zorder>
-   <zorder>textEdit</zorder>
+   <zorder>submit</zorder>
+   <zorder>reset</zorder>
+   <zorder>back</zorder>
+   <zorder>exit</zorder>
+   <zorder>problem</zorder>
   </widget>
  </widget>
  <resources/>

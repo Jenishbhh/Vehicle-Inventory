@@ -10,6 +10,7 @@ from pyrebase import pyrebase
 import firebase_admin
 from firebase_admin import firestore 
 from firebase_admin import credentials
+import random
 
 cred = credentials.Certificate("serviceAccountKey.json")
 firebase_admin.initialize_app(cred)
@@ -33,24 +34,24 @@ firebase=pyrebase.initialize_app(firebaseConfig)
 auth=firebase.auth()
 
 ## ==> SPLASH SCREEN
-from Ui_sceen import Ui_screen
+from app.Ui_sceen import Ui_screen
 
 
 
 ## ==> Log in Window
-from Ui_Login import Ui_Login
+from app.Ui_Login import Ui_Login
 
 
 ## ==> Sign Up Class
 
-from Ui_signup import Ui_SignUp
+from app.Ui_signup import Ui_SignUp
 
 ## ==> Add details class
 
-from Ui_User_Details import Ui_User_details
+from app.Ui_User_Details import Ui_User_details
 
 ## ==> Booking class
-from Ui_Booking import Ui_Booking
+from app.Ui_Booking import Ui_Booking
 
 ## ==> GLOBALS
 counter = 0
@@ -199,10 +200,13 @@ class Signup(QDialog):
 
 class User_details(QDialog):
     def __init__(self):
+        User_details.table=()
         QDialog.__init__(self)
         self.ui = Ui_User_details()
         self.ui.setupUi(self)
         self.ui.submit.clicked.connect(self.user_details_function)
+        
+
 
 
     def user_details_function(self):
@@ -212,17 +216,19 @@ class User_details(QDialog):
         v_make=self.ui.V_make.text()
         v_model=self.ui.V_model.text()
         v_year=self.ui.V_year.text()
-        
+        id = random.randit(0,99999)
 
-        user_data={'Name': name, 'Address': address, 'Phone': phone, 'ID': "ID"}
+        user_data={'Name': name, 'Address': address, 'Phone': phone, 'ID': id}
         v_data={'Vehicle Make': v_make,'Vehicle Model':v_model,'Vehicle Year': v_year}
         
         db.collection('User Side').document('User Info').collection(name).document('Persnol Info').set(user_data)
-        db.collection('User Side').document('User Info').collection(name).document('Vehicle').collection('Vehicle Info').document(v_make).set(v_data)
+        db.collection('User Side').document('vehicle Info').collection(name).document('Vehicle').collection(v_make).document(v_model).set(v_data)
+        table=db.collection('User Side').document('vehicle Info').collection(name).document('Vehicle').collection(v_make).document(v_model).get()
 
         self.main=Booking()
         self.main.show()
         self.close()
+        return table
 
 
 
@@ -237,9 +243,10 @@ class Booking(QMainWindow):
         QMainWindow.__init__(self)
         self.ui = Ui_Booking()
         self.ui.setupUi(self)
-
         
-
+        
+        
+    
         
             
 

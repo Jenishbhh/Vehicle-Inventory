@@ -1,0 +1,21 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>image/icons_svg/icon_add_user.svg</file>
+    <file>image/icons_svg/icon_attachment.svg</file>
+    <file>image/icons_svg/icon_busy.svg</file>
+    <file>image/icons_svg/icon_close.svg</file>
+    <file>image/icons_svg/icon_emoticons.svg</file>
+    <file>image/icons_svg/icon_idle.svg</file>
+    <file>image/icons_svg/icon_invisible.svg</file>
+    <file>image/icons_svg/icon_maximize.svg</file>
+    <file>image/icons_svg/icon_minimize.svg</file>
+    <file>image/icons_svg/icon_more_options.svg</file>
+    <file>image/icons_svg/icon_online.svg</file>
+    <file>image/icons_svg/icon_restore.svg</file>
+    <file>image/icons_svg/icon_search.svg</file>
+    <file>image/icons_svg/icon_send.svg</file>
+    <file>image/icons_svg/icon_settings.svg</file>
+    <file>image/icons_svg/icon_signal.svg</file>
+    <file>image/logo.png</file>
+  </qresource>
+</RCC>

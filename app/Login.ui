@@ -207,6 +207,10 @@
   <zorder>loginbutton</zorder>
   <zorder>label_4</zorder>
   <zorder>signup</zorder>
+  <zorder>verticalSpacer</zorder>
+  <zorder>verticalSpacer_2</zorder>
+  <zorder>horizontalSpacer</zorder>
+  <zorder>horizontalSpacer_2</zorder>
  </widget>
  <resources/>
  <connections/>
