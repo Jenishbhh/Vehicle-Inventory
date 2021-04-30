@@ -10,6 +10,9 @@
     <height>455</height>
    </rect>
   </property>
+  <property name="focusPolicy">
+   <enum>Qt::NoFocus</enum>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
@@ -276,7 +279,7 @@ border-radius:10px;</string>
   </widget>
  </widget>
  <resources>
-  <include location="test.qrc"/>
+  <include location="../../../test.qrc"/>
  </resources>
  <connections/>
 </ui>
